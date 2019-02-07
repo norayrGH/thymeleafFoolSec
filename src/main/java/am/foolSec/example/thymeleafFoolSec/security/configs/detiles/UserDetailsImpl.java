@@ -19,9 +19,9 @@ public class UserDetailsImpl implements UserDetails {
     private User user;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
         String userRole = user.getRole().name();
         SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole);
-
         return Collections.singleton(simpleGrantedAuthority);
     }
 
@@ -41,10 +41,7 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     @Override
-    public boolean isAccountNonLocked() {
-        return
-                !user.getState().equals(State.BANNED);
-    }
+    public boolean isAccountNonLocked() {return !user.getState().equals(State.BANNED); }
 
     @Override
     public boolean isCredentialsNonExpired() {

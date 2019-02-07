@@ -3,8 +3,10 @@ package am.foolSec.example.thymeleafFoolSec.model;
 
 import am.foolSec.example.thymeleafFoolSec.model.enums.Role;
 import am.foolSec.example.thymeleafFoolSec.model.enums.State;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -12,6 +14,8 @@ import javax.persistence.*;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
 

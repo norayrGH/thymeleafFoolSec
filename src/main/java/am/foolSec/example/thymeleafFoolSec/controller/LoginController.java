@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
     @RequestMapping("/login")
     public String loginPage(Authentication authentication){
-        if(authentication != null)
-            return "redirect:/";
 
         return "login";
     }

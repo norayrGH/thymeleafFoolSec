@@ -1,5 +1,7 @@
 package am.foolSec.example.thymeleafFoolSec.security.configs;
 
+import am.foolSec.example.thymeleafFoolSec.security.configs.detiles.UserDetailsImpl;
+import am.foolSec.example.thymeleafFoolSec.service.security.UserDetilsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Configuration;
@@ -12,23 +14,22 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    UserDetailsService userDetailsService;
+    UserDetilsServiceImpl userDetilsService;
     @Autowired
     PasswordEncoder passwordEncoder;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers( "/resources/**").permitAll()
-                .antMatchers("/users/**").authenticated()
+                .antMatchers( "/resources/**","/signup").permitAll()
+                .antMatchers("/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .successForwardUrl("/users/")
+                .successForwardUrl("/")
                 .and()
                 .logout()
                 .permitAll();
@@ -37,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userDetilsService).passwordEncoder(passwordEncoder);
 
     }
 }

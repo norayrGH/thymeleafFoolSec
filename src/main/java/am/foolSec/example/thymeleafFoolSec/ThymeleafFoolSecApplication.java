@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "am.foolSec.example.thymeleafFoolSec.security.config" )
 public class ThymeleafFoolSecApplication {
 	@Bean
 	PasswordEncoder passwordEncoder(){
