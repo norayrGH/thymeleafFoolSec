@@ -15,6 +15,6 @@ public class ProfileController {
     public String getProfilePage(HttpServletResponse response){
         String cacheControl = CacheControl.maxAge(10, TimeUnit.SECONDS).getHeaderValue();
         response.addHeader("Cache-Control", cacheControl);
-        return "profile";
+        return "admin";
     }
 }
