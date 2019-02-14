@@ -24,7 +24,7 @@ public class SignUpServiceImpl implements SignUpService {
         User user = User.builder()
                 .login(signUpUserDTO.getEmail())
                 .hashPassword(passwordEncoder.encode(signUpUserDTO.getPassword()))
-                .role(Role.USER)
+                .role(Role.ROLE_USER)
                 .state(State.ACTIVE).build();
         userRepository.save(user);
 

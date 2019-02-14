@@ -19,7 +19,6 @@ public class UserDetailsImpl implements UserDetails {
     private User user;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
         String userRole = user.getRole().name();
         SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole);
         return Collections.singleton(simpleGrantedAuthority);

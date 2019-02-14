@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Data
@@ -18,10 +19,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class User {
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
     private String login;
     private String hashPassword;
     @Enumerated(value = EnumType.STRING)
